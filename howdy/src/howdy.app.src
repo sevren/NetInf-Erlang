@@ -1,0 +1,12 @@
+{application, howdy,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { howdy_app, []}},
+  {env, []}
+ ]}.

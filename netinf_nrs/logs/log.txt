@@ -1,0 +1,89 @@
+"2013-01-18T08:04:53+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:53+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:53+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:53+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.700.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:53+00:00" : verbose nn_message_handler after_create_message ["about to send reply back to ",
+                                                                               nn_http_formatting]
+"2013-01-18T08:04:53+00:00" : verbose nn_message_handler do_request ["processing",
+                                                                     nn_http_formatting,
+                                                                     "Request"]
+"2013-01-18T08:04:53+00:00" : verbose nn_http_formatting parse "parse an HTTP request"
+"2013-01-18T08:04:53+00:00" : verbose nn_http_formatting is_netinf_req ["determines which if any NetInf message"]
+"2013-01-18T08:04:53+00:00" : verbose nn_http_formatting is_netinf_req "@ not a netinf request"
+"2013-01-18T08:04:53+00:00" : verbose nn_http_formatting create_error_message ["MsgId: ",
+                                                                               <<"unknown msgid">>]
+"2013-01-18T08:04:53+00:00" : verbose nn_message_handler do_request ["could not parse",
+                                                                     nn_http_formatting,
+                                                                     " request into NetInf Request"]
+"2013-01-18T08:04:53+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:53+00:00" : verbose nn_http_client_handler forward_msgHandler "Has been forwarded"
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler handle "generate frontpage"
+"2013-01-18T08:04:54+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:54+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:54+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.705.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler handle "skipping FAVICON , return 404"
+"2013-01-18T08:04:54+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:54+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:54+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:54+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.707.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:54+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:55+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:55+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:55+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:55+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.708.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:55+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:55+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:55+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:55+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:55+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.709.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:55+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:56+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:56+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:56+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:56+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.710.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:56+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:56+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:04:56+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:04:56+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:04:56+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.711.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:04:56+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:04:57+00:00" : verbose nn_sub_supervisor start_child "Starting content_transfer_handler process"
+"2013-01-18T08:04:57+00:00" : verbose nn_sub_supervisor start_child "Starting content_transfer_handler process"
+"2013-01-18T08:05:01+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:05:01+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:05:01+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:05:01+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.729.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:05:01+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:05:01+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:05:01+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:05:01+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:05:01+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.734.0>,
+                                                                               "Has been spawned"}
+"2013-01-18T08:05:01+00:00" : verbose nn_http_client_handler handle "skipping FAVICON , return 404"
+"2013-01-18T08:05:01+00:00" : verbose nn_message_handler kill 'kill a message handler process'
+"2013-01-18T08:05:02+00:00" : verbose nn_http_client_handler handle "FULLPUT IS FALSE"
+"2013-01-18T08:05:02+00:00" : verbose nn_message_handler spawn 'start a new message handler process'
+"2013-01-18T08:05:02+00:00" : verbose nn_sub_supervisor start_child "Starting message_handler process"
+"2013-01-18T08:05:02+00:00" : verbose nn_http_client_handler spawn_msgHandler {ok,
+                                                                               <0.735.0>,
+                                                                               "Has been spawned"}

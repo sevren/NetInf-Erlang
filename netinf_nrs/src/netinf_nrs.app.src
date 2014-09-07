@@ -1,0 +1,25 @@
+{application, netinf_nrs,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, {nn_app, []}},
+  {env,	 [	 
+             {log_level, verbose},  	 
+	     {database, nn_database_riak},
+	     {convergence_layers, ["http"]},
+	     {ip_timer, 5000},
+	     {discovery, off},
+	     {nrs_port, 9999},
+	     {ct_port, 8078},
+	     {client_port, 8079},
+	     {list_timer, 5000}
+	 ]
+  }
+ ]
+}.
+

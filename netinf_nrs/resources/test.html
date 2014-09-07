@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<LINK href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+	
+	<div id="header">
+			pens		
+	</div>
+	<div id="content">
+<div id="leftcontent">
+		
+<div id="left2">
+<form name="fetchni" action="/netinfproto/get" method="post">
+
+<h1>NetInf GET</h1> 
+<input type="hidden" name="stage" value="zero"/></br>
+<label>NI name:</label><input type="text" name="URI" /> </br>
+<label>msg-id</label><input type="text" name="msgid" /> </br>
+<label>ext (optional)</label><input type="text" name="ext" /> </br>
+<input type="submit" value="Submit"/> 
+</form>
+</div>
+
+<div id="left2">
+<form name="searchni" action="/netinfproto/search" method="post">
+<h1>NetInf SEARCH</h1>
+<input type="hidden" name="stage" value="zero"/></br>
+<label>Keywords:</label><input type="text" name="tokens" /> </br>
+<label>msg-id</label><input type="text" name="msgid" /> </br>
+<label>ext (optional)</label><input type="text" name="ext" /> </br>
+<input type="submit" value="Submit"/> 
+</form>
+		</div>
+<div id="left">
+			<script>
+// Check for the various File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+</script>
+<script src="http://www.bichlmeier.info/sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+<script src="http://en.ahotoke.com/tools/hexbase64.js"></script>
+<script>
+
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+	
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+
+	var preequal = 'ni:///sha-256;' + hexToBase64(sha256_digest(e.target.result));
+	document.getElementById('URI').value = preequal.slice(0,preequal.length-1);
+        };
+      })(files[0]);
+
+      // Read in the image file as a binaryString
+      reader.readAsBinaryString(files[0]);
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+
+<form name="fetchni" action="/netinfproto/publish" enctype="multipart/form-data" method="post">
+<h1>NetInf PUBLISH</h1></br>
+<label>NI name</label><input type="text" id= 'URI' name="URI"/> 
+<label>msg-id</label><input type="text" name="msgid" />
+<label>ext</label><input type="text" name="ext" />
+<label>Locator1</label><input type="text" name="loc1"/> 
+<label>Locator2</label><input type="text" name="loc2"/> 
+<label>Full PUT</label><input type="text" name="fullPut"/>
+<label>File (optional):</label><input type="file" id="files" name="octets"/>
+<input type="submit" value="Submit"/>
+<output id="list"></output>
+
+</form>
+</div>
+</div>
+		<div id="center">
+			
+		</div>
+		<div id="right">
+			<div id="stats">
+				<div id="statst">
+					Stats
+				</div>
+				<div id="statsc">
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				</div>
+				<div id="statsb">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+			DANIELE DOESNT APPROVE :(((((		
+	</div>
+</div>
+</BODY>
+</HTML>

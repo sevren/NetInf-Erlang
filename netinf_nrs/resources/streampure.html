@@ -1,0 +1,154 @@
+<div id="wrapper">
+	
+	<div id="header">
+			NetInf Streaming ERNI		
+	</div>
+	<div id="content">
+<div id="leftcontent">
+
+<div id="left2head">
+	<center><h1>SUBSCRIBE</h1></center>
+</div>
+<div id="leftchunk">
+
+<form name="subscribe" id="fsubscribe" action="/subscribe" method="post" onsubmit="return doSubscribe()">
+<label>NRS IP</label><input type="text" id="ip" name="ip"/> 
+<label>Stream Id</label><input type="text" id="streamid" name="ni" value="mystream"/> 
+<input type="submit" id="submit" value="Submit"/>
+
+</form>
+</div>
+
+</div>
+<div id="center"> 
+    <script>
+        var currentPart = 0;
+        var myVideo, myVideo2, streamName;
+        var timeOut1, timeOut2;
+	var playList = [];
+	window.onload = function (){
+		myVideo = document.getElementById('vid1');
+		myVideo2 = document.getElementById('vid2');
+		myVideo.addEventListener('ended', function(){
+			switchVideo();
+		});
+		myVideo2.addEventListener('ended', function(){
+			switchVideo();
+		});
+
+		myVideo.addEventListener('error', function(){
+	                timeOut1 = window.setTimeout("tryAgain(myVideo)", 1000);
+		});
+		myVideo2.addEventListener('error', function(){
+			timeOut2 = window.setTimeout("tryAgain(myVideo2)", 1000);
+		});
+	}
+
+	function tryAgain(videoPlayer){
+		videoPlayer.load();
+		if(videoPlayer.style.display == "block"){
+			videoPlayer.play();
+		}
+	}
+
+	function startStream() {
+                window.clearTimeout(timeOut1);
+                window.clearTimeout(timeOut2);
+		currentPart = 0;
+		var myVideo = document.getElementsByTagName('video')[0];
+		var myVideo2 = document.getElementsByTagName('video')[1];
+		if (playList.length < 1) {
+			window.setTimeout(startStream, 1000);
+			return;
+ 		}
+		var currentStream = "http://" + streamUrl + "/octets/" + encodeURIComponent(playList[currentPart].ni);
+		currentPart++;
+		console.log(currentStream);
+		myVideo.setAttribute('src', currentStream);
+		myVideo.load();
+		myVideo.play();
+		getNextPart(myVideo2);	
+	}
+
+	function getNextPart(videoPlayer) {
+		if (playList.length <= currentPart ) {					
+			window.setTimeout(function () {getNextPart(videoPlayer)}, 1000);
+			return;
+		}
+                console.log("Preloading part " + currentPart);
+		var currentStream = "http://" + streamUrl + "/octets/" + encodeURIComponent(playList[currentPart].ni);
+		console.log(currentStream);
+		videoPlayer.setAttribute('src', currentStream);
+		videoPlayer.load();
+		if(videoPlayer.style.display == "block"){
+			videoPlayer.play();
+		}
+		currentPart++;
+	}
+	function switchVideo() {
+		var myVideo = document.getElementsByTagName('video')[0];
+		var myVideo2 = document.getElementsByTagName('video')[1];
+		if(myVideo.style.display == "block"){
+			myVideo.style.display = "none";
+			myVideo2.style.display = "block";
+			myVideo2.play();
+			
+			//get next part for myVideo
+			getNextPart(myVideo);
+		} else {
+			myVideo2.style.display = "none";
+			myVideo.style.display = "block";
+			myVideo.play();
+			//get next part for myVideo2
+			getNextPart(myVideo2);
+		}
+	}
+
+        function setStreamName(name) {
+           $('#stream').val(name);
+           streamName = name;
+        }
+
+
+	function cmpNetInfSearchResult(a, b) {
+  	  if (a.chunk < b.chunk)
+     	    return -1;
+          if (a.chunk > b.chunk)
+            return 1;
+  	  return 0;
+	}
+
+	function pollSearch() {
+	   var date = new Date();
+	   var msgid = date.getTime();
+	   $.post('/searchpure', { 
+             msgid: ""+msgid,
+	     tokens: streamName,
+             ext: ''
+          }).success(function(data) {
+		var jsonResp = JSON.parse(data);
+	        var result = jsonResp.results.sort(cmpNetInfSearchResult);
+		playList = result;
+	   })
+	}
+
+        function doSubscribe() {
+            $.post('/subscribe/search_and_get', $('#fsubscribe').serialize())
+              .success(function() {$('#info').html('Subscribed to the stream')})
+              .error(function() {$('#info').html('<span style="color:red">Failed to subscribe</span>')});
+            var name = $("#streamid").val();
+            if(!name) 
+              return false;
+            setStreamName(name);
+	    window.setInterval(pollSearch, 1000);
+	    startStream();
+            return false;f
+        }	f
+    </script>
+    	<div class="video-player" align="center">
+        <video src="" style="display:block" id="vid1" preload="auto" controls="controls" width="500"></video>
+	<video src="" style="display:none" id="vid2" preload="auto" controls="controls" width="500"></video>
+	<a href="javascript:startStream();">Restart stream</a>
+	<label>Stream</label><input type="text" id="stream" name="stream"/>
+        <p id="info"></p>
+    </div>

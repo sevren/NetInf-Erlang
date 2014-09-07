@@ -1,0 +1,127 @@
+body{
+	background-color:#f0f0f0;
+	font-family:verdana;	
+	font-size:12px;
+}
+
+#wrapper {
+	width:100%;
+}
+#header{
+	margin: 0px auto;
+	width:1000px;
+	height:120px;
+}
+#bottom{
+	margin: 0px auto;
+	width:1000px;
+	height:120px;
+}
+
+#content {
+	font-family:verdana;
+	
+	overflow:hidden;
+	background-color:#ffffff;
+	margin: 0px auto;
+	height:700px;
+	width: 1000px;
+	border:1px solid #cccccc;
+	clear:both
+}
+
+#content h1{
+	margin-top: 3px;
+	margin-bottom: -10px;
+	padding:0px;
+	font-size:14px;
+}
+
+
+#stats {
+	margin-left:10px;
+	width:180px;
+}
+#statst {
+	padding-left:6px;
+	padding-top:4px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	border-top:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+}
+
+#statsc {
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+}
+
+#statsb {
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+}
+
+#left{
+	text-align:left;
+	margin-left:10px;
+	margin-top:10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #cccccc;
+	padding-left:6px;
+	padding-top:4px;
+	width:250px;
+	height:300px;
+	float:left;
+
+}
+
+#left2{
+	margin-left:10px;
+	margin-top:10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #cccccc;
+	padding-left:6px;
+	padding-top:4px;
+	width:250px;
+	height:133px;
+	float:left;
+}
+#leftcontent{
+	height:400px;
+	width:270px;
+	
+	float:left;
+}
+.formHeader{font-size:24pt; margin:10px; text-align:center;}
+.formItem{clear:both;}
+form label{float:left; text-align:right; width:50px; padding-right:3px; margin-top:4px;}
+
+#center{
+	margin-left:10px;
+	margin-top:10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #cccccc;
+	padding-left:6px;
+	padding-top:4px;
+	width:510px;
+	height:300px;
+	float:left;
+}
+
+#right{
+	margin-top: 10px;
+	width:200px;
+	height:700px;
+	float:right;
+}

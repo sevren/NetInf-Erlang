@@ -1,0 +1,30 @@
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="URI"
+
+ni:///sha-256;d748c318b3f2e63s7163693738b6b80bcf7fb4003f51d390c8367c8d32705df81
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="msgid"
+
+1234
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="ext"
+
+{"meta":"banana"}
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="octets"; filename=""
+Content-Type: application/octet-stream
+
+
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="loc1"
+
+somewere
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="loc2"
+
+elsewere
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW
+Content-Disposition: form-data; name="rform"
+
+json
+--------WebKitFormBoundaryjTwy4nYi2Aj6shCW--

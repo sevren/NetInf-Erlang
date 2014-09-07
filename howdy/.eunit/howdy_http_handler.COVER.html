@@ -1,0 +1,64 @@
+<html>
+<head><title>.eunit/howdy_http_handler.COVER.html</title></head><body bgcolor=white text=black>
+<pre>
+File generated from /var/lib/jenkins/jobs/backend/workspace/howdy/.eunit/howdy_http_handler.erl by COVER 2012-10-08 at 11:15:58
+
+****************************************************************************
+
+        |  %%% @author Marcus Ihlar &lt;marcus@ihlar.se&gt;
+        |  %%% 
+        |  %%% @doc
+        |  %%% This is a simple http servers that responds to GET-requests. 
+        |  %%% Based on the example echo_get from the Cowboy project.
+        |  %%% 
+        |  %%% Two types of parameter are handeled, echo and io. The first
+        |  %%% one is a simple echo of the request value. The other returns
+        |  %%% a static string.
+        |  %%% @end
+        |  %%% Created :  4 Oct 2012 by Marcus Ihlar &lt;marcus@ihlar.se&gt;
+        |  
+        |  -module(howdy_http_handler).
+        |  
+        |  -export([init/3]).
+        |  -export([handle/2]).
+        |  -export([terminate/2]).
+        |  
+        |  init(_Transport, Req, []) -&gt;
+<font color=red>     0..|      {ok, Req, undefined}.</font>
+        |  
+        |  handle(Req, State) -&gt;
+<font color=red>     0..|      {Method, Req2} = cowboy_req:method(Req),</font>
+<font color=red>     0..|      {Bin, _R} = cowboy_req:qs(Req2),</font>
+<font color=red>     0..|      io:format("~p~n", [binary_to_list(Bin)]),</font>
+<font color=red>     0..|      {ok, Req3} = determine_action(Method, [&lt;&lt;"echo"&gt;&gt;, &lt;&lt;"io"&gt;&gt;], Req2),</font>
+<font color=red>     0..|      {ok, Req3, State}.</font>
+        |      
+        |  determine_action(&lt;&lt;"GET"&gt;&gt;, [], Req) -&gt;
+<font color=red>     0..|      cowboy_req:reply(400, [], &lt;&lt;"Invalid parameter."&gt;&gt;, Req);</font>
+        |  determine_action(&lt;&lt;"GET"&gt;&gt;, [Param | T], Req) -&gt;
+<font color=red>     0..|      case cowboy_req:qs_val(Param, Req) of</font>
+        |  	{undefined, Req2} -&gt;
+<font color=red>     0..|  	    determine_action(&lt;&lt;"GET"&gt;&gt;, T, Req2);</font>
+        |  	{Value, Req2} -&gt;
+<font color=red>     0..|  	    handle_request(Param, Value, Req2)</font>
+        |      end;
+        |  determine_action(_, _, Req) -&gt;
+        |      %% Method not allowed.
+<font color=red>     0..|      cowboy_req:reply(405, Req).</font>
+        |  
+        |  handle_request(&lt;&lt;"echo"&gt;&gt;, Echo, Req) -&gt;
+<font color=red>     0..|      cowboy_req:reply(200,</font>
+        |  		     [{&lt;&lt;"Content-Encoding"&gt;&gt;, &lt;&lt;"utf-8"&gt;&gt;}], Echo, Req);
+        |  handle_request(&lt;&lt;"io"&gt;&gt;, Io, Req) -&gt;
+<font color=red>     0..|      cowboy_req:reply(200,</font>
+        |  		     [{&lt;&lt;"Content-Encoding"&gt;&gt;, &lt;&lt;"utf-8"&gt;&gt;}], gen_io(Io), Req).
+        |  
+        |  gen_io(C) -&gt;
+<font color=red>     0..|      list_to_binary("I am an IO, do not comment on my BO! " ++ C).</font>
+        |  
+        |  terminate(_Req, _State) -&gt;
+<font color=red>     0..|  	ok.</font>
+        |  
+</pre>
+</body>
+</html>

@@ -1,0 +1,80 @@
+</div>
+				<div id="statsb">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+	  Created by ERNI 2012 - 2013
+	</div>
+</div>
+<script type="text/javascript">
+// when the document has loaded, start polling
+window.setInterval(function() {
+	//var temp = document.getElementById("statsc").innerHTML;
+	$.get("/stats", function(temp) {
+    	  obj = JSON.parse(temp);
+	  var msgid = obj.msgid_list;
+	  var active_count = obj.active_count;
+	  var request_count = obj.request_count;
+	  var forwarded_reqs_count = obj.forwarded_reqs_count;
+	  var forwarded_times_count = obj.forwarded_times_count;
+	  var tot_hit_count = obj.tot_hit_count;
+	  var local_hit_count = obj.local_hit_count;
+	  var not_found_count = obj.not_found_count;
+	  var ndo_count = obj.ndo_count;
+	  var octet_count = obj.octet_count;
+
+	  var temp2 = '<div id="statseven">Msg id count : ' + msgid.length + 
+		    '<div id="statsodd">Active count: ' + active_count +
+			'</div><div id="statseven">Request count : ' + request_count + 
+			'</div><div id="statsodd">Forwarded reqs count : ' + forwarded_reqs_count + 
+			'</div><div id="statseven">Forwarded times count : ' + forwarded_times_count + 
+			'</div><div id="statsodd">Tot hit count  : ' + tot_hit_count  + 
+			'</div><div id="statseven">Local hit count  : ' + local_hit_count  +
+			'</div><div id="statsodd">Not found count  : ' + not_found_count  +
+			'</div><div id="statseven">Ndo count  : ' + ndo_count  +
+			'</div><div id="statsodd">Octet count  : ' + octet_count + '</div>';
+
+
+	document.getElementById("statsc").innerHTML = temp2;
+       });
+}, 500);
+var temp3;
+
+try{
+    var temp_center = document.getElementById("center").innerHTML;
+    var obj2 = JSON.parse(temp_center);
+    if(obj2.NetInf != undefined)
+		temp3 = 'NetInf version : ' +  obj2.NetInf;
+ 	if(obj2.msgid != undefined)
+		 temp3 +='</br>Msg id: ' + obj2.msgid;
+	 if(obj2.ts != undefined)
+		temp3 += '</br>Timestamp : ' +obj2.ts;
+ 	if(obj2.status != undefined)
+		temp3 +='</br>Status : ' + obj2.status;
+ 	if(obj2.metadata != undefined)
+		temp3 +='</br>Metadata : ' + obj2.metadata.metadata;
+	if(obj2.ct != undefined)
+		temp3 +='</br>Content type : ' + obj2.ct;
+ 	if(obj2.ni != undefined)
+		temp3 +='</br>Ni  : ' + obj2.ni;
+ 	if(obj2.loc != undefined)
+		temp3 +='</br>Locators  : ' + obj2.loc;
+
+
+
+	if(window.location.pathname != "/stream" && window.location.pathname != "/streampure"){
+		document.getElementById("center").innerHTML = temp3;
+	}
+
+}catch(exception){
+/* I assume an empty div with no json obj to parse */	
+	if(window.location.pathname != "/stream"  && window.location.pathname != "/streampure"){
+		document.getElementById("center").innerHTML = "";
+	}
+}
+    </script>
+</BODY>
+</HTML>
