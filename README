@@ -1,1 +1,8 @@
 README
+
+ERNI project CS
+
+Backend Erlang NetInf server
+
+To run: Cd into netinf_nrs directory && run the bash script file netinf_nrs.sh
+(you may have chmod a+x netinf_nrs.sh)
